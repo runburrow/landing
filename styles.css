@@ -1,4 +1,4 @@
-/* Burrow landing page. Same tokens as the app (internal/web/static/style.css):
+/* Burrow landing page. Same tokens as the app (internal/web/static/style.css in runburrow/goburrow):
    rust belongs to the fox, red means fatal or regression, mono is for code and figures. */
 @font-face { font-family: "IBM Plex Mono"; src: url("assets/fonts/IBMPlexMono-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 @font-face { font-family: "IBM Plex Mono"; src: url("assets/fonts/IBMPlexMono-Medium.woff2") format("woff2"); font-weight: 500 700; font-display: swap; }
