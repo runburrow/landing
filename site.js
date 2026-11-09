@@ -17,6 +17,18 @@
   };
   document.querySelectorAll("[data-bars]").forEach((el) => drawBars(el, el.dataset.bars.split(",").map(Number)));
 
+  // The closing fox trots to its burrow when the section comes into view.
+  const trot = document.querySelector("[data-trot]");
+  if (trot && !reducedMotion) {
+    if ("IntersectionObserver" in window) {
+      const seen = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) { trot.classList.add("trotting"); seen.disconnect(); }
+      }, { threshold: 0.6 });
+      trot.classList.add("trot-wait"); // off stage until then, so it doesn't jump from its rest pose
+      seen.observe(trot);
+    } else trot.classList.add("trotting");
+  }
+
   // A barcode for the spec label, drawn from the version string's bytes.
   const code = document.querySelector("[data-barcode]");
   if (code) {
