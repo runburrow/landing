@@ -1,0 +1,3 @@
+# Optional. Referral links default to /join/?c=<code>, which needs nothing here.
+# This lets the shorter /join/<code> form work too on Netlify / Cloudflare Pages.
+/join/*  /join/index.html  200
