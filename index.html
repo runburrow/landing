@@ -54,6 +54,7 @@
 </script>
 <link rel="stylesheet" href="styles.css">
 <script src="site.js" defer></script>
+<script src="signup.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -69,7 +70,8 @@
     <a href="#how">How it works</a>
     <a href="#install">Install</a>
     <a href="https://github.com/runburrow/goburrow">GitHub</a>
-    <span class="button soon" aria-disabled="true" data-demo>Demo coming soon</span>
+    <a class="button" href="#hosted">Get one free</a>
+    <a class="button primary" href="https://demo.ground.goburrow.net/_fleet/demo" data-demo>Try the demo</a>
   </nav>
 </header>
 
@@ -79,7 +81,7 @@
     <h1 id="hero-title">Your errors, your server.</h1>
     <p class="hero-lead">Self-hosted error tracking in <strong>one ~14 MB binary and a SQLite file.</strong> No Redis, no Kafka, no ClickHouse.</p>
     <div class="hero-actions">
-      <span class="button soon" aria-disabled="true" data-demo>Demo coming soon</span>
+      <a class="button primary" href="https://demo.ground.goburrow.net/_fleet/demo" data-demo>Try the demo</a>
       <a class="button" href="https://github.com/runburrow/goburrow">View on GitHub</a>
     </div>
     <div class="command" aria-label="Install command">
@@ -191,23 +193,23 @@ end)</pre>
 </section>
 
 <section class="section" aria-labelledby="detail-title">
-  <div class="wrap">
-    <h2 id="detail-title">The failing line, the locals, and what led up to it.</h2>
-    <p class="section-lead">Each issue keeps chained exceptions, stack frames with source context and local variables, breadcrumbs, request, user, tags, and the raw event.</p>
-    <div class="detail">
-      <figure class="shot">
-        <picture>
-          <source srcset="assets/shots/issue-detail-light.webp" media="(prefers-color-scheme: light)">
-          <img src="assets/shots/issue-detail-dark.webp" width="2560" height="1720" alt="Burrow's issue page for ZeroDivisionError: division by zero. Line 42, total = subtotal / count, is highlighted in the checkout frame, with local variable count = 0 below it. A sidebar shows 48 events over the last 14 days and tags for environment, release and platform." loading="lazy" decoding="async">
-        </picture>
-        <figcaption>The issue page in Burrow, with sample data.</figcaption>
-      </figure>
+  <div class="wrap detail">
+    <div class="detail-copy">
+      <h2 id="detail-title">The failing line, the locals, and what led up to it.</h2>
+      <p class="section-lead">Each issue keeps chained exceptions, stack frames with source context and local variables, breadcrumbs, request, user, tags, and the raw event.</p>
       <ul class="notes">
         <li><h3>Context around the crash</h3><p>Source lines around the failing call, with the locals that were in scope. Here, <code>count</code> was 0.</p></li>
         <li><h3>Grouping that ignores noise</h3><p>Line numbers, bundle hashes, and the volatile parts of messages (numbers, UUIDs, IPs, timestamps) don't split an issue. SDK fingerprints are honored.</p></li>
         <li><h3>Regressions reopen themselves</h3><p>Resolve an issue and forget it. If it happens again, it comes back marked as a regression.</p></li>
       </ul>
     </div>
+    <figure class="shot">
+      <picture>
+        <source srcset="assets/shots/issue-detail-light.webp" media="(prefers-color-scheme: light)">
+        <img src="assets/shots/issue-detail-dark.webp" width="2560" height="1720" alt="Burrow's issue page for ZeroDivisionError: division by zero. Line 42, total = subtotal / count, is highlighted in the checkout frame, with local variable count = 0 below it. A sidebar shows 48 events over the last 14 days and tags for environment, release and platform." loading="lazy" decoding="async">
+        </picture>
+        <figcaption>The issue page in Burrow, with sample data.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -247,11 +249,12 @@ end)</pre>
   </div>
 </section>
 
-<section class="section" id="install" aria-labelledby="install-title">
-  <div class="wrap">
-    <h2 id="install-title">Install it in a minute.</h2>
-    <p class="section-lead">On first visit you create the admin account. Then create a project, copy its DSN, or press Send test event to see an issue right away.</p>
-    <div class="install">
+<section class="section" id="install" aria-label="Two ways to get Burrow">
+  <div class="wrap paths">
+    <div class="path">
+      <h2 id="install-title">Install it in a minute.</h2>
+      <p class="section-lead">On first visit you create the admin account. Then create a project, copy its DSN, or press Send test event to see an issue right away.</p>
+      <div class="install">
       <div>
         <h3>Docker</h3>
         <pre class="code" id="install-docker">git clone https://github.com/runburrow/goburrow burrow
@@ -265,37 +268,37 @@ docker compose up -d</pre>
 ./burrow</pre>
         <p>Data lives in <code>burrow.db</code> next to the binary unless you set <code>BURROW_DB</code>.</p>
       </div>
+      </div>
     </div>
-  </div>
-</section>
-
-<section class="section" id="hosted" aria-labelledby="hosted-title">
-  <div class="wrap split">
-    <div>
+    <div class="path path-hosted" id="hosted">
       <h2 id="hosted-title">Can't run a server right now?</h2>
-      <p class="section-lead">We've all been there. Ask for an account on our instance instead: the same Burrow, nothing to install, no cost.</p>
+      <p class="section-lead">We've all been there. Get a Burrow on ours instead: the same Burrow, at its own address, nothing to install, no cost.</p>
       <ul class="facts">
-        <li><span><strong>For people who can't host their own yet.</strong> Tell us a little about what you're making and we'll set you up.</span></li>
-        <li><span><strong>Your data stays yours.</strong> Email any time and your account and everything in it is deleted.</span></li>
+        <li><span><strong>Yours in a minute.</strong> Pick an address and we email you a link to set your password.</span></li>
+        <li><span><strong>Your data stays yours.</strong> Nobody else can sign in to it, us included. Email any time and it's deleted with everything in it.</span></li>
         <li><span><strong>Move out whenever.</strong> Run your own Burrow later and point your SDK at its DSN. Nothing else changes.</span></li>
       </ul>
-    </div>
-    <div>
-      <div class="letter" aria-label="What to send">
-        <dl class="letter-head">
-          <div><dt>To</dt><dd><code id="hosted-address">hosting@goburrow.net</code></dd></div>
-          <div><dt>Subject</dt><dd>Hosted Burrow account</dd></div>
-        </dl>
-        <ol class="letter-body">
-          <li>What you're building</li>
-          <li>Where to find it, a link is perfect</li>
-          <li>How big your team is <span class="muted">(optional, just curious)</span></li>
-        </ol>
-      </div>
-      <div class="hero-actions letter-actions">
-        <a class="button primary" href="mailto:hosting@goburrow.net?subject=Hosted%20Burrow%20account&amp;body=What%20I%27m%20building%3A%0A%0AWhere%20to%20find%20it%20%28a%20link%29%3A%0A%0AHow%20big%20my%20team%20is%20%28optional%2C%20just%20curious%29%3A%0A">Write the email</a>
-        <button class="copy copy-address" type="button" data-copy="#hosted-address">Copy address</button>
-      </div>
+      <!-- Sign-up posts to the fleet. To change where, edit data-fleet and action (and the same two on join/index.html). -->
+      <form class="signup" method="post" action="https://ground.goburrow.net/_fleet/signup" data-signup data-fleet="https://ground.goburrow.net" data-domain="ground.goburrow.net" novalidate>
+        <label class="field" for="signup-subdomain"><span class="field-label">Address</span>
+          <span class="address-input"><input id="signup-subdomain" name="subdomain" required maxlength="40" pattern="[a-z0-9]([a-z0-9\-]{0,38}[a-z0-9])?" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="your-team" aria-describedby="signup-subdomain-help"><span class="address-suffix">.ground.goburrow.net</span></span>
+          <span class="field-help" id="signup-subdomain-help" data-subdomain-help>Lowercase letters, digits and dashes. It can't be changed later.</span>
+        </label>
+        <label class="field" for="signup-name"><span class="field-label">Name <span class="muted">(optional)</span></span>
+          <input id="signup-name" name="name" maxlength="100" autocomplete="organization" placeholder="e.g. Otter Games">
+        </label>
+        <label class="field" for="signup-email"><span class="field-label">Your email</span>
+          <input id="signup-email" name="email" type="email" required maxlength="254" autocomplete="email" spellcheck="false" aria-describedby="signup-email-help">
+          <span class="field-help" id="signup-email-help">Your Burrow's details and password link go here. You become its admin.</span>
+        </label>
+        <input type="hidden" name="ref" data-ref>
+        <label class="trap" aria-hidden="true">Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label>
+        <div class="hero-actions signup-actions">
+          <button class="button primary" type="submit">Create my Burrow</button>
+          <a class="signup-alt" href="mailto:hosting@goburrow.net?subject=Hosted%20Burrow%20account">Rather email us?</a>
+        </div>
+        <p class="signup-status" role="status" aria-live="polite" data-signup-status hidden></p>
+      </form>
     </div>
   </div>
 </section>
@@ -312,9 +315,9 @@ docker compose up -d</pre>
   <g class="dirt-particles"><circle cx="170" cy="70" r="1.3"/><circle cx="177" cy="63" r="1"/><circle cx="184" cy="71" r="1.2"/><circle cx="208" cy="71" r="1.2"/><circle cx="215" cy="63" r="1"/><circle cx="222" cy="70" r="1.3"/><circle cx="191" cy="64" r="1.1"/><circle cx="201" cy="64" r="1.1"/><circle cx="196" cy="58" r="1"/></g>
 </svg></span>
     <h2 id="close-title">See it with real errors before you install it.</h2>
-    <p class="section-lead">A public demo with sample projects to triage is on its way. Until then, install it and press Send test event: you'll have a real issue on screen in a minute.</p>
+    <p class="section-lead">The demo has sample projects full of errors to triage, resolve and break again. Nothing to sign up for, and it tidies itself up every so often.</p>
     <div class="hero-actions">
-      <span class="button soon" aria-disabled="true" data-demo>Demo coming soon</span>
+      <a class="button primary" href="https://demo.ground.goburrow.net/_fleet/demo" data-demo>Try the demo</a>
       <a class="button" href="https://github.com/runburrow/goburrow">View on GitHub</a>
     </div>
   </div>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>You're invited · Burrow</title>
+<meta name="description" content="Someone thinks you'd like Burrow: error tracking that's yours. Get your own Burrow free, set up in a minute.">
+<!-- Referral links land on this one page, which reads the code from the address:
+     goburrow.net/join/?c=<code> works on any host. goburrow.net/join/<code> also works
+     where the host rewrites /join/* here (see _redirects). -->
+<meta name="robots" content="noindex, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Burrow">
+<meta property="og:title" content="You're invited to Burrow">
+<meta property="og:description" content="Error tracking that's yours. Get your own Burrow free, set up in a minute.">
+<meta property="og:image" content="https://goburrow.net/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0b0a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f2f1ee" media="(prefers-color-scheme: light)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/styles.css">
+<script src="/signup.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head wrap">
+  <a class="brand" href="/" aria-label="Burrow home"><svg class="fox fox-mark" viewBox="0 0 52 52" aria-hidden="true" focusable="false">
+  <g class="fox-ears"><g class="fox-ear fox-ear-l"><path class="fox-ink" d="M7.6 17.9V22.4M9.9 10.8V21.7M12.2 4.2V21M14.5 7.5V20.2M16.8 10.8V19.5M19.1 14.1V18.8"/></g><g class="fox-ear fox-ear-r"><path class="fox-ink" d="M32.9 14.1V18.8M35.2 10.8V19.5M37.5 7.5V20.2M39.8 4.2V21M42.1 10.8V21.7M44.4 17.9V22.4"/></g></g>
+  <g class="fox-body-bars"><path class="fox-ink" d="M7.6 23.5V35.9M9.9 22.7V37.3M12.2 22V38.6M16.8 20.5V41.3M19.1 19.8V42.6M21.4 19.1V44.1M26 19.1V46.9M28.3 19.1V45.5M30.6 19.1V44.1M35.2 20.5V41.3M37.5 21.3V39.9M39.8 22V38.6M44.4 23.5V35.9M46.7 24.2V34.6"/><path class="fox-ink fox-bold" d="M5.3 24.2V34.6M14.5 21.3V39.9M23.7 19.1V45.5M32.9 19.8V42.6M42.1 22.7V37.3"/></g>
+  <path class="fox-tip" d="M7.6 17.9V19.3M9.9 10.8V14.3M12.2 4.2V9.6M14.5 7.5V11.6M16.8 10.8V13.6M19.1 14.1V15.6M32.9 14.1V15.6M35.2 10.8V13.6M37.5 7.5V11.6M39.8 4.2V9.6M42.1 10.8V14.3M44.4 17.9V19.3"/><path class="fox-ruff" d="M3 27V35M1 29V34M49 27V35M51 29V34"/><ellipse class="fox-nose" cx="26" cy="44" rx="2.4" ry="1.9"/>
+  <g class="fox-eyes"><circle class="eye-ground" cx="18.5" cy="31.8" r="3"/><circle class="eye-dot" cx="18.5" cy="31.8" r="1.5"/><circle class="eye-ground" cx="33.5" cy="31.8" r="3"/><circle class="eye-dot" cx="33.5" cy="31.8" r="1.5"/></g>
+</svg><span class="wordmark">burrow</span></a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/#how">How it works</a>
+    <a href="https://github.com/runburrow/goburrow">GitHub</a>
+    <a class="button" href="https://demo.ground.goburrow.net/_fleet/demo" data-demo>Try the demo</a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="join-hero" aria-labelledby="join-title">
+  <div class="wrap split">
+    <div>
+      <h1 id="join-title">You've been invited to Burrow.</h1>
+      <p class="section-lead">Someone who uses Burrow thinks you'd like it too. It catches your app's errors and groups them into issues, with stack traces and breadcrumbs, and it works with the Sentry SDK you may already use.</p>
+      <ul class="facts">
+        <li><span><strong>Free, and yours.</strong> Your own Burrow at its own address. Nobody else can sign in to it, us included.</span></li>
+        <li><span><strong>Ready in a minute.</strong> Pick an address and we email you a link to set your password.</span></li>
+        <li><span><strong>Move out whenever.</strong> It's open source: run it yourself later and keep your SDK setup.</span></li>
+      </ul>
+      <p><span class="join-code" data-ref-code hidden></span></p>
+      <p class="section-lead"><a href="/">More about Burrow</a> · <a href="https://demo.ground.goburrow.net/_fleet/demo">Try the demo first</a></p>
+    </div>
+    <div>
+      <!-- Sign-up posts to the fleet. To change where, edit data-fleet and action (and the same two on /index.html). -->
+      <form class="signup" method="post" action="https://ground.goburrow.net/_fleet/signup" data-signup data-fleet="https://ground.goburrow.net" data-domain="ground.goburrow.net" novalidate>
+        <label class="field" for="signup-subdomain"><span class="field-label">Address</span>
+          <span class="address-input"><input id="signup-subdomain" name="subdomain" required maxlength="40" pattern="[a-z0-9]([a-z0-9\-]{0,38}[a-z0-9])?" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="your-team" aria-describedby="signup-subdomain-help"><span class="address-suffix">.ground.goburrow.net</span></span>
+          <span class="field-help" id="signup-subdomain-help" data-subdomain-help>Lowercase letters, digits and dashes. It can't be changed later.</span>
+        </label>
+        <label class="field" for="signup-name"><span class="field-label">Name <span class="muted">(optional)</span></span>
+          <input id="signup-name" name="name" maxlength="100" autocomplete="organization" placeholder="e.g. Otter Games">
+        </label>
+        <label class="field" for="signup-email"><span class="field-label">Your email</span>
+          <input id="signup-email" name="email" type="email" required maxlength="254" autocomplete="email" spellcheck="false" aria-describedby="signup-email-help">
+          <span class="field-help" id="signup-email-help">Your Burrow's details and password link go here. You become its admin.</span>
+        </label>
+        <input type="hidden" name="ref" data-ref>
+        <label class="trap" aria-hidden="true">Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label>
+        <div class="hero-actions signup-actions">
+          <button class="button primary" type="submit">Create my Burrow</button>
+          <a class="signup-alt" href="mailto:hosting@goburrow.net?subject=Hosted%20Burrow%20account">Rather email us?</a>
+        </div>
+        <p class="signup-status" role="status" aria-live="polite" data-signup-status hidden></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Burrow is an independent open-source project and is not affiliated with or endorsed by Functional Software, Inc. “Sentry” is their trademark. Burrow implements the publicly documented Sentry ingestion protocol.</p>
+    <p class="foot-links">Questions: <a href="mailto:contact@goburrow.net">contact@goburrow.net</a> · Maintainer: <a href="mailto:sean@goburrow.net">sean@goburrow.net</a><br><a href="https://github.com/runburrow/goburrow">Source on GitHub</a> · MIT License</p>
+  </div>
+</footer>
+</body>
+</html>
